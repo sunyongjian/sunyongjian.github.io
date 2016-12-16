@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>SYJ个人主页</title>
+  <title>redux-devtools简单使用 | SYJ个人主页</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工作生活,随笔随记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SYJ个人主页">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Introducingredux-devtools 是一个非常棒的工具，它可以让你实时的监控Redux的状态树的Store
+
+Installation123npm install --save-dev redux-devtoolsnpm install --save-dev redux-devtools-log-monitornpm install --save-dev redux-devtoo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redux-devtools简单使用">
+<meta property="og:url" content="http://yoursite.com/2016/12/16/redux-devtools简单使用/index.html">
 <meta property="og:site_name" content="SYJ个人主页">
-<meta property="og:description" content="工作生活,随笔随记">
+<meta property="og:description" content="Introducingredux-devtools 是一个非常棒的工具，它可以让你实时的监控Redux的状态树的Store
+
+Installation123npm install --save-dev redux-devtoolsnpm install --save-dev redux-devtools-log-monitornpm install --save-dev redux-devtoo">
+<meta property="og:updated_time" content="2016-12-16T12:41:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SYJ个人主页">
-<meta name="twitter:description" content="工作生活,随笔随记">
+<meta name="twitter:title" content="redux-devtools简单使用">
+<meta name="twitter:description" content="Introducingredux-devtools 是一个非常棒的工具，它可以让你实时的监控Redux的状态树的Store
+
+Installation123npm install --save-dev redux-devtoolsnpm install --save-dev redux-devtools-log-monitornpm install --save-dev redux-devtoo">
   
     <link rel="alternative" href="/atom.xml" title="SYJ个人主页" type="application/atom+xml">
   
@@ -142,16 +149,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-redux-devtools简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-redux-devtools简单使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/16/redux-devtools简单使用/">redux-devtools简单使用</a>
+    <h1 class="article-title" itemprop="name">
+      redux-devtools简单使用
     </h1>
   
 
@@ -168,11 +173,55 @@
 <li><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev redux-devtools</div><div class="line">npm install --save-dev redux-devtools-log-monitor</div><div class="line">npm install --save-dev redux-devtools-dock-monitor</div></pre></td></tr></table></figure>
 </li>
 </ul>
-        
-          <a class="article-more-a" href="/2016/12/16/redux-devtools简单使用/#more">more >></a>
-        
+<a id="more"></a>
+<ul>
+<li><h3 id="Usege"><a href="#Usege" class="headerlink" title="Usege"></a>Usege</h3><p>创建DevTools组件<br>在你的App项目中，通过“Monitor（监视显示）”用createDevTools创建一个DevTools组件。示例用了最常用，最简单的LogMonitor和DockMonitor</p>
+</li>
+<li><p>containers/DevTools.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;</div><div class="line"></div><div class="line">//从redux-devtools中引入createDevTools</div><div class="line">import &#123; createDevTools &#125; from &apos;redux-devtools&apos;;</div><div class="line"></div><div class="line">//显示包是单独的，要额外指定</div><div class="line">import LogMonitor from &apos;redux-devtools-log-monitor&apos;;</div><div class="line">import DockMonitor from &apos;redux-devtools-dock-monitor&apos;;</div><div class="line"></div><div class="line">//创建DevTools组件</div><div class="line">const DevTools = createDevTools(</div><div class="line">  &lt;DockMonitor toggleVisibilityKey=&apos;ctrl-h&apos;</div><div class="line">               changePositionKey  =&apos;ctrl-q&apos;&gt;</div><div class="line">    &lt;LogMonitor theme=&apos;tomorrow&apos; /&gt;</div><div class="line">  &lt;/DockMonitor&gt;</div><div class="line">);</div><div class="line"></div><div class="line">export default DevTools</div></pre></td></tr></table></figure>
+<p>用DevTools.instrument()通过redux的compose来扩展store<br>用createDevTools()创建的DevTools组件有个特殊的静态方法instrument(),它返回一个store的增强器,在开发中你需要在compose中使用。注意：DevTools.instrument()要放在applyMiddleware后，因为你的applyMiddleware可以存在异步行为，为了确保所有的actions显示在store中，所以要放在后面</p>
+</li>
+<li><p>store/create.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">import &#123;createStore,applyMiddleware,compose&#125; from &apos;redux&apos;</div><div class="line">import rootReducer from &apos;./modules/reducers&apos;</div><div class="line"></div><div class="line">import thunk from &apos;./middleware/thunk&apos;</div><div class="line">import DevTools from &apos;../containers/DevTools&apos;</div><div class="line"></div><div class="line">const enhancer = compose(</div><div class="line">  //你要使用的中间件，放在前面</div><div class="line">  applyMiddleware(thunk),</div><div class="line">  //必须的！启用带有monitors（监视显示）的DevTools</div><div class="line">  DevTools.instrument()</div><div class="line">)</div><div class="line"></div><div class="line">export default function createStoreWithMiddleware(initialState)&#123;</div><div class="line">  //注意：仅仅只有redux&gt;=3.1.0支持第三个参数</div><div class="line">  const store = createStore(rootReducer,initialState,enhancer)</div><div class="line">  return store</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Render <devtools> in your App</devtools></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line">import &#123; render &#125; from &apos;react-dom&apos;;</div><div class="line">import &#123; Provider &#125; from &apos;react-redux&apos;;</div><div class="line">import configureStore from &apos;./store/configureStore&apos;;</div><div class="line">import TodoApp from &apos;./components/Counter&apos;;</div><div class="line"></div><div class="line">//注意，不要直接这样做，要区分开发环境和生产环境</div><div class="line">import DevTools from &apos;./containers/DevTools&apos;;</div><div class="line"></div><div class="line">const store = configureStore();</div><div class="line"></div><div class="line">render(</div><div class="line">  &lt;Provider store=&#123;store&#125;&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">      &lt;Counter /&gt;</div><div class="line">      &lt;DevTools /&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/Provider&gt;</div><div class="line">  document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢大爷打赏...<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alpay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wxpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -186,212 +235,81 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/16/redux-devtools简单使用/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIElEQVR42u3aS3LCMBAFwNz/0mSbRQzvjUwqSO2VCxBWk6qJ5vP1FV+PH9fs9av75NtuuzAwMD6W8Xh6Jdtd+f78uVefwcDAOIdx9fg2ROb37aoXe8bAwMC4Nfheff45DwMDA6Nl5MG3Da8YGBgYK0lsEkaTd5+/8vZcHAMD4wMZedX97+/f0t/AwMD4KMZKsb49GiaJ67CFgIGBsTVjpQ25fkwsEtRkLAMDA2NrRl4sS5LPWYktbxW8oGJgYBzJSDb9IgjGAxazYyUGBsbejHxxPmA6awYUhz8MDIzDGG3qOKvMt4fI2QgIBgbGCYzZ5toHt9taGq3AwMDYgtGWt1pS/lsmwfdFEouBgXEAI9l622JcaX8WMAwMjK0ZdxXu8ybBrM1ZHBYxMDA2ZbRht20VtO2EYVMBAwNja8YKZnZAnBXa3vg3wcDA+PeMdhRslnzOwmvRbMDAwDiAcS8mb0DOhi1+WYWBgXEAY6WIdm8CPERiYGAcwHhHmpqXzOpW5VUSi4GBcQxjNrCVlNLaQ+cwicXAwNiU0QbWYYsxTm7rtRgYGJsyHuXVlufyclsbxIv0FQMD48MZ69G6Lf23wXp2cMTAwNiPsVKyb6cd2p+mCLgYGBgHMNrEdRYiZ+DofwUGBgbGqKC/EpTrYygGBgZGUG67i5oH6MsBVgwMjE0ZK82AZFUy4NWGeAwMjHMYs9QxD8dta3P9WImBgbER4xtr0uTzvMUd9gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
-
-
-
-
-
   
-    <article id="post-redux之store" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/16/redux之store/">redux之store</a>
-    </h1>
-  
-
-        <a href="/2016/12/16/redux之store/" class="archive-article-date">
-  	<time datetime="2016-12-16T12:05:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-16</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="store"><a href="#store" class="headerlink" title="store"></a>store</h3><blockquote>
-<p>store 是什么</p>
-</blockquote>
-<p>store是一个管理state的大对象，并且提供了一系列的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">getState(),  //返回state</div><div class="line">dispatch(action),  // 派发一个action</div><div class="line">subscribe()  //订阅监听</div></pre></td></tr></table></figure></p>
-<p>通过redux 提供的 createStore,传入reducer函数，我们可以得到一个store对象<br>
-        
-          <a class="article-more-a" href="/2016/12/16/redux之store/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-redux/">react redux</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/16/redux之store/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-promise笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/16/promise笔记/">Promise笔记</a>
-    </h1>
-  
-
-        <a href="/2016/12/16/promise笔记/" class="archive-article-date">
-  	<time datetime="2016-12-16T11:26:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-16</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><blockquote>
-<p>为什么会有promise</p>
-</blockquote>
-<p>根据官方的说法，promise的出现是为了解决”callback hell”回调地狱, 将横向的嵌套回调改为可以纵向以then的方式加载执行。</p>
-<blockquote>
-<p>简介 &amp; 用法</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 通过new Promise 得到一个promise的实例，也就是一个普通对象。构造函数需要传一个callback 去定义何时执行resolve，reject 这两个函数</div><div class="line">var promise = new Promise(function(resolve, reject) &#123;</div><div class="line">  if(&apos;code&apos;) &#123; // code 可能是异步操作成功判断条件</div><div class="line">    resolve()</div><div class="line">  &#125; else &#123;</div><div class="line">    reject()</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">// then的两个参数(resolve, reject)</div><div class="line">promise.then(function()&#123;</div><div class="line">  console.log(&apos;success&apos;)</div><div class="line">&#125;,function()&#123;</div><div class="line">  console.log(&apos;failure&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/12/16/promise笔记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-Promise/">JavaScript Promise</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/16/promise笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-redux之reducer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/15/redux之reducer/">redux之reducer</a>
-    </h1>
-  
-
-        <a href="/2016/12/15/redux之reducer/" class="archive-article-date">
-  	<time datetime="2016-12-15T05:26:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-15</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h3><ul>
-<li>为什么叫reducer<br>大概是由于reducer函数都能作为数组的reduce方法的参数，所以叫reducer的吧。</li>
-<li>Array中的reduce<br>reduce需要两个参数，一个是回调函数，一个是初始值，没有初始值，会默认把数组第一个当初始值，并从第二个开始<blockquote>
-<p>模拟数组的reduce方法</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Array.prototype.reduce = function reduce (callback, init) &#123;</div><div class="line">  var i = 0;</div><div class="line">  if(typeof init === &apos;undefined&apos;) &#123;</div><div class="line">    init = this[0];</div><div class="line">    i = 1;</div><div class="line">  &#125;</div><div class="line">  if(typeof callback !== &apos;function&apos;) &#123;</div><div class="line">    throw new Error(callback + &apos; is not function&apos;)</div><div class="line">  &#125;</div><div class="line">  for( ;i&lt; this.length; i++ ) &#123;</div><div class="line">    init = callback(init, this[i])</div><div class="line">  &#125;</div><div class="line">  return init ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/12/15/redux之reducer/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-redux/">react redux</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/15/redux之reducer/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
+<nav id="article-nav">
   
   
+    <a href="/2016/12/16/redux之store/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redux之store</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
 
 
           </div>
@@ -413,8 +331,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

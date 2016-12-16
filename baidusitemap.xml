@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/12/15/redux%E4%B9%8Breducer/</loc>
+    <lastmod>2016-12-16T12:41:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>redux之reducer</title>
+        <pubTime>2016-12-15T05:26:57.000Z</pubTime>
+        
+        <tag>react redux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/12/16/redux-devtools%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2016-12-16T12:41:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>redux-devtools简单使用</title>
+        <pubTime>2016-12-16T12:07:16.000Z</pubTime>
+        
+        <tag>redux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/12/16/promise%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2016-12-16T12:41:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Promise笔记</title>
+        <pubTime>2016-12-16T11:26:57.000Z</pubTime>
+        
+        <tag>JavaScript Promise</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/12/16/redux%E4%B9%8Bstore/</loc>
+    <lastmod>2016-12-16T12:41:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>redux之store</title>
+        <pubTime>2016-12-16T12:05:51.000Z</pubTime>
+        
+        <tag>react redux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+</urlset>
