@@ -1,14 +1,90 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>redux之reducer | SYJ个人主页</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="reducer
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="redux,react," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="reducer
 为什么叫reducer大概是由于reducer函数都能作为数组的reduce方法的参数，所以叫reducer的吧。
 Array中的reducereduce需要两个参数，一个是回调函数，一个是初始值，没有初始值，会默认把数组第一个当初始值，并从第二个开始
 模拟数组的reduce方法
@@ -28,7 +104,7 @@ Array中的reducereduce需要两个参数，一个是回调函数，一个是初
 
 
 1234567891011121314Array.prototype.reduce = func">
-<meta property="og:updated_time" content="2016-12-16T12:41:34.000Z">
+<meta property="og:updated_time" content="2016-12-19T11:26:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redux之reducer">
 <meta name="twitter:description" content="reducer
@@ -39,148 +115,251 @@ Array中的reducereduce需要两个参数，一个是回调函数，一个是初
 
 
 1234567891011121314Array.prototype.reduce = func">
-  
-    <link rel="alternative" href="/atom.xml" title="SYJ个人主页" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.ico">
-  
-  <link rel="stylesheet" href="/main.css?v=4.0.0.css">
-  
 
-  
 
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/15/redux之reducer/"/>
+
+
+
+
+
+  <title> redux之reducer | SYJ个人主页 </title>
 </head>
 
-<body>
-  <div id="container" q-class="show:isCtnShow">
-    <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" q-class="show:isShow">
-      <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			<img src="/img/xiaoxin.jpg" class="js-avatar">
-		</a>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">JoYous-SUN</a></h1>
-		</hgroup>
+  
 
-		
 
-		<nav class="header-menu">
-			<ul>
-			
-				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/随笔/">随笔</a></li>
-	        
-				<li><a href="/about">关于我</a></li>
-	        
-			</ul>
-		</nav>
-		<nav class="header-smart-menu">
-	        
-    		
-    			
-    			<a data-idx="0" q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-    			
-            
-    			
-    			<a data-idx="1" q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
-    			
-            
-    			
-    			<a data-idx="2" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
-    			
-    			
-            
-		</nav>
-		<nav class="header-nav">
-			<div class="social">
-				
-					<a class="github" target="_blank" href="https://github.com/sunyongjian" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="weibo" target="_blank" href="http://weibo.com/u/2478148491/home" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-yong-jian-48/activities" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
-			</div>
-		</nav>
-	</header>		
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f02134aa12b4690edca4d4345b88ea01";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SYJ个人主页</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
 </div>
 
-    </div>
-    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"><i class="icon-sort"></i></div>
-  		<h1 class="header-author js-mobile-header hide">JoYous-SUN</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img src="/img/xiaoxin.jpg" class="js-avatar">
-			</div>
-			<hgroup>
-			  <h1 class="header-author">JoYous-SUN</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/tags/随笔/">随笔</a></li>
-		        
-					<li><a href="/about">关于我</a></li>
-		        
-		        
-		        	<li><a href="/archives/">所有文章</a></li>
-		        
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/sunyongjian" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/u/2478148491/home" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-yong-jian-48/activities" title="zhihu"><i class="icon-zhihu"></i></a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
 
-      <div id="wrapper" class="body-wrap">
-        <div class="menu-l">
-          <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
-          </div>
-          <div id="js-content" class="content-ll">
-            <article id="post-redux之reducer" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f02134aa12b4690edca4d4345b88ea01";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      redux之reducer
-    </h1>
+
   
 
-        <a href="/2016/12/15/redux之reducer/" class="archive-article-date">
-  	<time datetime="2016-12-15T05:26:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-15</time>
-</a>
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/15/redux之reducer/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="JoYous-SUN">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/naruto.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SYJ个人主页">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SYJ个人主页" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                redux之reducer
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-15T13:26:57+08:00">
+                2016-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <h3 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h3><ul>
 <li>为什么叫reducer<br>大概是由于reducer函数都能作为数组的reduce方法的参数，所以叫reducer的吧。</li>
@@ -189,16 +368,16 @@ Array中的reducereduce需要两个参数，一个是回调函数，一个是初
 </blockquote>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Array.prototype.reduce = function reduce (callback, init) &#123;</div><div class="line">  var i = 0;</div><div class="line">  if(typeof init === &apos;undefined&apos;) &#123;</div><div class="line">    init = this[0];</div><div class="line">    i = 1;</div><div class="line">  &#125;</div><div class="line">  if(typeof callback !== &apos;function&apos;) &#123;</div><div class="line">    throw new Error(callback + &apos; is not function&apos;)</div><div class="line">  &#125;</div><div class="line">  for( ;i&lt; this.length; i++ ) &#123;</div><div class="line">    init = callback(init, this[i])</div><div class="line">  &#125;</div><div class="line">  return init ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.reduce = <span class="function"><span class="keyword">function</span> <span class="title">reduce</span> (<span class="params">callback, init</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> init === <span class="string">'undefined'</span>) &#123;</div><div class="line">    init = <span class="keyword">this</span>[<span class="number">0</span>];</div><div class="line">    i = <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> callback !== <span class="string">'function'</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(callback + <span class="string">' is not function'</span>)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>( ;i&lt; <span class="keyword">this</span>.length; i++ ) &#123;</div><div class="line">    init = callback(init, <span class="keyword">this</span>[i])</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> init ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <blockquote>
 <p>reduce的使用</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var ary = [1,2,3];</div><div class="line">console.log(ary.reduce((initialValue, next) =&gt; &#123;</div><div class="line">  console.log(initialValue, next);</div><div class="line">  return next;</div><div class="line">&#125;,0))</div><div class="line">// 01  12  23  3</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ary = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="built_in">console</span>.log(ary.reduce(<span class="function">(<span class="params">initialValue, next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(initialValue, next);</div><div class="line">  <span class="keyword">return</span> next;</div><div class="line">&#125;,<span class="number">0</span>))</div><div class="line"><span class="comment">// 01  12  23  3</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>写一个简单的reducer</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function reducer (initialValue, next) &#123;</div><div class="line">  console.log(initialValue, next)</div><div class="line">  switch (next) &#123;</div><div class="line">    case 1:</div><div class="line">      return next;</div><div class="line">      break;</div><div class="line">    default:</div><div class="line">      return initialValue</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">// 这个reducer 判断传入的值next。是1 的话 返回结果是 next 也就是1 ，所以最后结果都是1</div><div class="line">console.log(ary.reduce(reducer))</div><div class="line">// 12  13  1</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reducer</span> (<span class="params">initialValue, next</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(initialValue, next)</div><div class="line">  <span class="keyword">switch</span> (next) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">      <span class="keyword">return</span> next;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">return</span> initialValue</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 这个reducer 判断传入的值next。是1 的话 返回结果是 next 也就是1 ，所以最后结果都是1</span></div><div class="line"><span class="built_in">console</span>.log(ary.reduce(reducer))</div><div class="line"><span class="comment">// 12  13  1</span></div></pre></td></tr></table></figure>
 <h3 id="reducer在redux中的作用"><a href="#reducer在redux中的作用" class="headerlink" title="reducer在redux中的作用"></a>reducer在redux中的作用</h3><p>reducer的作用就是设计state结构，它可以给定state 的初始值，更重要的是告诉store，根据对应的action如何更新state。 通常我们的store需要多个reducer组合，成为我们最后的state tree</p>
 <blockquote>
 <p>注意点</p>
@@ -206,7 +385,7 @@ Array中的reducereduce需要两个参数，一个是回调函数，一个是初
 <ul>
 <li>保持reducer 的纯净</li>
 </ul>
-<p>通常我们的reducer是纯函数(pure function) 即固定的输入返回固定的输出，没有副作用，没有API请求… 等等，之后我们说为什么这么做。<br>通常我们在处理业务中，比如请求一个列表的数据并渲染。<br>举个栗子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">const initialState = &#123;</div><div class="line">  code: -1,</div><div class="line">  data: [],</div><div class="line">  isFetching: false</div><div class="line">&#125;;</div><div class="line">//初始化我们的state，也就是没有请求之前，我们根据接口的数据格式做一个模拟</div><div class="line"></div><div class="line">function List(state = initialState, action) &#123;</div><div class="line">  switch (action.type) &#123;</div><div class="line">// 这里的types 通常是我们保存这种常量的一个对象</div><div class="line"></div><div class="line">    case types.FETCH_LIST_SUCCESS:</div><div class="line">      return &#123;...state, data:action.data,isFetching:false&#125;;</div><div class="line">    case types.FETCHING_LIST:</div><div class="line">      return &#123;...state, isFetching: true&#125;</div><div class="line">    case types.FETCH_LIST_FAILURE:</div><div class="line">      return &#123;...state, isFetching:false&#125;;</div><div class="line">    default:</div><div class="line">      return state</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通常我们的reducer是纯函数(pure function) 即固定的输入返回固定的输出，没有副作用，没有API请求… 等等，之后我们说为什么这么做。<br>通常我们在处理业务中，比如请求一个列表的数据并渲染。<br>举个栗子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> initialState = &#123;</div><div class="line">  <span class="attr">code</span>: <span class="number">-1</span>,</div><div class="line">  <span class="attr">data</span>: [],</div><div class="line">  <span class="attr">isFetching</span>: <span class="literal">false</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">//初始化我们的state，也就是没有请求之前，我们根据接口的数据格式做一个模拟</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">List</span>(<span class="params">state = initialState, action</span>) </span>&#123;</div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line"><span class="comment">// 这里的types 通常是我们保存这种常量的一个对象</span></div><div class="line"></div><div class="line">    <span class="keyword">case</span> types.FETCH_LIST_SUCCESS:</div><div class="line">      <span class="keyword">return</span> &#123;...state, <span class="attr">data</span>:action.data,<span class="attr">isFetching</span>:<span class="literal">false</span>&#125;;</div><div class="line">    <span class="keyword">case</span> types.FETCHING_LIST:</div><div class="line">      <span class="keyword">return</span> &#123;...state, <span class="attr">isFetching</span>: <span class="literal">true</span>&#125;</div><div class="line">    <span class="keyword">case</span> types.FETCH_LIST_FAILURE:</div><div class="line">      <span class="keyword">return</span> &#123;...state, <span class="attr">isFetching</span>:<span class="literal">false</span>&#125;;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">return</span> state</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p> 我们的reducer函数就是根据请求的状态返回不同的数据，但是数据格式是一定的。Fetching就是 请求过程中，比如我们做一个loading效果可能需要这个。然后type是success就是成功我们返回数据。这些请求都放到actions 中了，actions去处理逻辑，数据API，重组数据。只需要传给reducer函数数据结果就ok了。</p>
 <blockquote>
 <p>为什么要重新返回一个对象。</p>
@@ -216,334 +395,354 @@ Array中的reducereduce需要两个参数，一个是回调函数，一个是初
 <p>另外，我们的react组件 会多次接受store传入props，每一次都应该是一个全新的对象引用，而不是同一个引用。比如我们需要比较两次传入的props，利用componentWillReciveProps（nextProps） 比较this.props 跟nextProps，肯定是需要两个对象空间的，不然是同一个对象引用也就没法比较了。</p>
 <p>所以redux 中的reducer 函数要求我们必须返回新的对象state</p>
 <p><a href="http://cn.redux.js.org/docs/basics/Reducers.html" target="_blank" rel="external">redux文档-reducer</a></p>
-<h3 id="多个reducer组合成我们的state-tree"><a href="#多个reducer组合成我们的state-tree" class="headerlink" title="多个reducer组合成我们的state tree"></a>多个reducer组合成我们的state tree</h3><p>通常我们会引入redux提供的一个函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &#123; combineReducers &#125; from &apos;redux&apos;</div></pre></td></tr></table></figure></p>
+<h3 id="多个reducer组合成我们的state-tree"><a href="#多个reducer组合成我们的state-tree" class="headerlink" title="多个reducer组合成我们的state tree"></a>多个reducer组合成我们的state tree</h3><p>通常我们会引入redux提供的一个函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">'redux'</span></div></pre></td></tr></table></figure></p>
 <p>其实combineReducers做的事情很简单，顾名思义就是合并多个reducer<br>比如我们一个项目有多个reducer但是最后需要合并成一个，然后告诉store生成state tree，再注入Provider组件，先不关注Provider的问题。我们看一下combineReducers的简单实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//首先我们组合得到的reducer仍旧是一个函数</div><div class="line">//这个reducer会整合所有的reducer</div><div class="line">//然后根据我们定义的状态树的格式返回一个大的state tree</div><div class="line">// 根据reducers这个对象的key，取到reducer函数，并传入对应的 state</div><div class="line"></div><div class="line">const combineReducers = function combineReducers (reducers) &#123;</div><div class="line">  return (state = &#123;&#125;, action) &#123;</div><div class="line">    Object.keys(reducers).reduce((initialState, key) =&gt; &#123;</div><div class="line">      initialState[key] = reducers[key](state[key], action)</div><div class="line">      return initialState</div><div class="line">    &#125;,&#123;&#125;)</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//首先我们组合得到的reducer仍旧是一个函数</span></div><div class="line"><span class="comment">//这个reducer会整合所有的reducer</span></div><div class="line"><span class="comment">//然后根据我们定义的状态树的格式返回一个大的state tree</span></div><div class="line"><span class="comment">// 根据reducers这个对象的key，取到reducer函数，并传入对应的 state</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> combineReducers = <span class="function"><span class="keyword">function</span> <span class="title">combineReducers</span> (<span class="params">reducers</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (state = &#123;&#125;, action) &#123;</div><div class="line">    <span class="built_in">Object</span>.keys(reducers).reduce(<span class="function">(<span class="params">initialState, key</span>) =&gt;</span> &#123;</div><div class="line">      initialState[key] = reducers[key](state[key], action)</div><div class="line">      <span class="keyword">return</span> initialState</div><div class="line">    &#125;,&#123;&#125;)</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这个函数返回一个rootReducer，然后createStore接收rootReducer，在createStore内部会调用一次dispatch(init)，rootReducer 会执行，所有我们制定的reducrs对象中的key 都会被添加到 一个初始化initialState中，遍历将每个子级state添加到initialState 。init的时候，state[key]是undefined，每个reducer函数有初始值 返回。以后的dispatch ，因为有了state tree，state[key]都可以取到值了。</p>
 <p>待续…</p>
 
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢大爷打赏...<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alpay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wxpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-redux/">react redux</a></li></ul>
-	</div>
 
-      
-
-      
-
+    <div>
       
         
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3ay27DMAxE0fz/T6dAVwVcqXdIp4Cp61Xg+KHjxUCk9Hrh4/19XM/8PK7nV9fvn3O95rZDhgwZj2W8t8eVsRrK6sxqWCv8/vySKkOGjAMY5DUkQHkSrp6TfgIZMmTI2L8sDehPhLUMGTJkpL/3T+OlrAwZMmTUilgesulkMY11GTJknMZIFwb+8/cH1zdkyJDxEMa7cZBmGVkA4Iuay3tlyJAxmpG2+NPtFylpv/DwxwhlyJAxlNFvgaULmf0lgV/eK0OGjNGMz8VuOtXjkR0UtDJkyBjEKBaNYcnKW3j8Ey+LWBkyZIxj8NhNJ4u1MK1t15AhQ8Y5jHTQfJME+WQpFWFkyJDxcEZnCsjBtXvJhgwZMmScw0jbZ7zH1Z8sBlW4DBkyhjL6GyDSwOX/8k8mQ4aMExi1GCUv5ssAvJEXvFeGDBkjGJ2NDp2NEbW3oBmuDBkyxjFaN7RjlD85uEaGDBmjGeSi2lYJAuDb0YrzXBkyZDycUZucpYNIt1DEjT8ZMmQcw+Axd9dQ+KQTLQPIkCFjNKO2PaKzCtGByZAh4zRGEGrtcjeO0XQpQoYMGeMYtbKTxyspPm/4BDJkyBjNqEVqWtByEv9MMmTIOI1RC9mgZR+Wo2QMyyVMGTJkjGakcRnUx7W9HrgtKEOGDBm1a9KwTkvZZb9QhgwZxzPSUpYP5eY6W4YMGUMZpIitBSVvq8WFqwwZMo5hdEKZt/hJEO/jmBfMMmTIGMT4AsmV+ggqktgzAAAAAElFTkSuQmCC" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
-      <div class="clearfix"></div>
     </div>
-  </div>
-</article>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2016/12/16/promise笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
+    <div>
+      
         
-          Promise笔记
-        
-      </div>
-    </a>
-  
-  
-</nav>
 
-
-
-
-
-
-
-
-
-          </div>
-        </div>
-      </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 JoYous-SUN
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+      
     </div>
-  </div>
-</footer>
-    </div>
-    <script>
-	var yiliaConfig = {
-		mathjax: false,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false,
-		root: "/",
-		innerArchive: true
-	}
-</script>
-
-<script src="/./main.js?v=4.0.0.js"></script>
 
 
-    
-<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
-  <div class="tools-wrap">
-    
-    	<section class="tools-section tools-section-all" q-show="innerArchive">
-        <div class="search-wrap">
-          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
-          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
-          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redux/" rel="tag"># redux</a>
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
         </div>
-        <div class="widget tagcloud search-tag">
-          <p class="search-tag-wording">tag:</p>
-          <label class="search-switch">
-            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
-          </label>
-          <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">JavaScript,Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">react,redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">react redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">JavaScript Promise</a>
-              </li>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-            <div class="clearfix"></div>
-          </ul>
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/16/promise笔记/" rel="prev" title="Promise笔记">
+                Promise笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
         </div>
-        <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
-            2、在根目录_config.yml里添加配置：
-<pre style="font-size: 12px;" q-show="jsonFail">
-  jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: true
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-</pre>
-          </p>
-          <li class="search-li" q-repeat="items" q-show="isShow">
-            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
-            <p class="search-time">
-              <i class="icon-calendar icon"></i>
-              <span q-text="date|dateformat"></span>
-            </p>
-            <p class="search-tag">
-              <i class="icon-price-tags icon"></i>
-              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
-            </p>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
           </li>
         </ul>
-    	</section>
-    
+      
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-    	</section>
-    
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/naruto.png"
+               alt="JoYous-SUN" />
+          <p class="site-author-name" itemprop="name">JoYous-SUN</p>
+          <p class="site-description motion-element" itemprop="description">工作生活,随笔随记</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">关于我&lt;br&gt;&lt;br&gt;新入前端，菜🐶一只。&lt;br&gt;热爱生活，热爱LOL、旅游...&lt;br&gt;保持新鲜，不断进取&lt;br&gt;谢谢大家</div>
-  	  	
-    	</section>
-    
-  </div>
-  
-</div>
-    <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+          
 
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
 
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
+        </nav>
 
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sunyongjian" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2478148491/home" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo,"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/sun-yong-jian-48/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
         </div>
 
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
+        
+        
 
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
             </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
 
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
+        
 
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
 
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
+      </section>
 
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
-        </div>
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#reducer"><span class="nav-number">1.</span> <span class="nav-text">reducer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reducer在redux中的作用"><span class="nav-number">2.</span> <span class="nav-text">reducer在redux中的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多个reducer组合成我们的state-tree"><span class="nav-number">3.</span> <span class="nav-text">多个reducer组合成我们的state tree</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
     </div>
+  </aside>
 
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JoYous-SUN</span>
 </div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
 </body>
 </html>

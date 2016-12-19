@@ -1,14 +1,90 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Promise笔记 | SYJ个人主页</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="promise
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Promise," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="promise
 为什么会有promise
 
 根据官方的说法，promise的出现是为了解决”callback hell”回调地狱, 将横向的嵌套回调改为可以纵向以then的方式加载执行。
@@ -28,7 +104,7 @@
 简介 &amp;amp; 用法
 
 1234567891011121314// 通过new Promise 得到一个promise的实例，也就是一个普通对象。构造函数需要传一个callback 去定义何时执行resolv">
-<meta property="og:updated_time" content="2016-12-16T12:41:33.000Z">
+<meta property="og:updated_time" content="2016-12-19T11:44:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise笔记">
 <meta name="twitter:description" content="promise
@@ -39,148 +115,251 @@
 简介 &amp;amp; 用法
 
 1234567891011121314// 通过new Promise 得到一个promise的实例，也就是一个普通对象。构造函数需要传一个callback 去定义何时执行resolv">
-  
-    <link rel="alternative" href="/atom.xml" title="SYJ个人主页" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.ico">
-  
-  <link rel="stylesheet" href="/main.css?v=4.0.0.css">
-  
 
-  
 
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/16/promise笔记/"/>
+
+
+
+
+
+  <title> Promise笔记 | SYJ个人主页 </title>
 </head>
 
-<body>
-  <div id="container" q-class="show:isCtnShow">
-    <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" q-class="show:isShow">
-      <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			<img src="/img/xiaoxin.jpg" class="js-avatar">
-		</a>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">JoYous-SUN</a></h1>
-		</hgroup>
+  
 
-		
 
-		<nav class="header-menu">
-			<ul>
-			
-				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/随笔/">随笔</a></li>
-	        
-				<li><a href="/about">关于我</a></li>
-	        
-			</ul>
-		</nav>
-		<nav class="header-smart-menu">
-	        
-    		
-    			
-    			<a data-idx="0" q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-    			
-            
-    			
-    			<a data-idx="1" q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
-    			
-            
-    			
-    			<a data-idx="2" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
-    			
-    			
-            
-		</nav>
-		<nav class="header-nav">
-			<div class="social">
-				
-					<a class="github" target="_blank" href="https://github.com/sunyongjian" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="weibo" target="_blank" href="http://weibo.com/u/2478148491/home" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-yong-jian-48/activities" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
-			</div>
-		</nav>
-	</header>		
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f02134aa12b4690edca4d4345b88ea01";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SYJ个人主页</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
 </div>
 
-    </div>
-    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"><i class="icon-sort"></i></div>
-  		<h1 class="header-author js-mobile-header hide">JoYous-SUN</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img src="/img/xiaoxin.jpg" class="js-avatar">
-			</div>
-			<hgroup>
-			  <h1 class="header-author">JoYous-SUN</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/tags/随笔/">随笔</a></li>
-		        
-					<li><a href="/about">关于我</a></li>
-		        
-		        
-		        	<li><a href="/archives/">所有文章</a></li>
-		        
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/sunyongjian" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/u/2478148491/home" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sun-yong-jian-48/activities" title="zhihu"><i class="icon-zhihu"></i></a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
 
-      <div id="wrapper" class="body-wrap">
-        <div class="menu-l">
-          <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
-          </div>
-          <div id="js-content" class="content-ll">
-            <article id="post-promise笔记" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f02134aa12b4690edca4d4345b88ea01";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Promise笔记
-    </h1>
+
   
 
-        <a href="/2016/12/16/promise笔记/" class="archive-article-date">
-  	<time datetime="2016-12-16T11:26:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-16</time>
-</a>
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/16/promise笔记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="JoYous-SUN">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/naruto.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SYJ个人主页">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SYJ个人主页" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Promise笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-16T19:26:57+08:00">
+                2016-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><blockquote>
 <p>为什么会有promise</p>
@@ -189,7 +368,7 @@
 <blockquote>
 <p>简介 &amp; 用法</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 通过new Promise 得到一个promise的实例，也就是一个普通对象。构造函数需要传一个callback 去定义何时执行resolve，reject 这两个函数</div><div class="line">var promise = new Promise(function(resolve, reject) &#123;</div><div class="line">  if(&apos;code&apos;) &#123; // code 可能是异步操作成功判断条件</div><div class="line">    resolve()</div><div class="line">  &#125; else &#123;</div><div class="line">    reject()</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">// then的两个参数(resolve, reject)</div><div class="line">promise.then(function()&#123;</div><div class="line">  console.log(&apos;success&apos;)</div><div class="line">&#125;,function()&#123;</div><div class="line">  console.log(&apos;failure&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过new Promise 得到一个promise的实例，也就是一个普通对象。构造函数需要传一个callback 去定义何时执行resolve，reject 这两个函数</span></div><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(<span class="string">'code'</span>) &#123; <span class="comment">// code 可能是异步操作成功判断条件</span></div><div class="line">    resolve()</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    reject()</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// then的两个参数(resolve, reject)</span></div><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'success'</span>)</div><div class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'failure'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
 <li>三种状态<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[[PromiseValue]] //内部属性 -- 状态</div><div class="line">//而且这个状态不可随意更改，只跟resolve ，reject函数执行有关</div></pre></td></tr></table></figure>
@@ -205,7 +384,7 @@
 <li>方法</li>
 </ul>
 <h5 id="Promise-prototype-then"><a href="#Promise-prototype-then" class="headerlink" title="Promise.prototype.then()"></a>Promise.prototype.then()</h5><p>两个参数 resolve， reject</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">function getPromise (status) &#123;</div><div class="line">   return new Promise(function(resolve, reject) &#123;</div><div class="line">    let time = Date.now()</div><div class="line">    console.log(&apos;time&apos;)</div><div class="line">    setTimeout(()=&gt;&#123;</div><div class="line">       if(status) &#123;</div><div class="line">         resolve(time)</div><div class="line">       &#125; else &#123;</div><div class="line">         reject(new Error(&apos;status error&apos;))</div><div class="line">       &#125;</div><div class="line">    &#125;,1000)    </div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">getPromise(1).then((time)=&gt;&#123;</div><div class="line">  console.log(&apos;1&apos;,Date.now()-time)</div><div class="line">  return Date.now()-time</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  console.log(err,&apos;err&apos;)</div><div class="line">  return err</div><div class="line">&#125;).then((time)=&gt;&#123;</div><div class="line">  console.log(&apos;2&apos;,time)</div><div class="line">  return time</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  console.log(err,&apos;err&apos;)</div><div class="line">  return err</div><div class="line">&#125;).then((time)=&gt;&#123;</div><div class="line">  console.log(&apos;3&apos;,time)</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  console.log(err,&apos;err&apos;)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//</div><div class="line">&quot;time&quot;</div><div class="line">&quot;1&quot; 1002</div><div class="line">&quot;2&quot; 1002</div><div class="line">&quot;3&quot; 1002</div><div class="line">//</div><div class="line">// status传0</div><div class="line">getPromise(0).then((time)=&gt;&#123;</div><div class="line">  console.log(&apos;1&apos;,Date.now()-time)</div><div class="line">  return Date.now()-time</div><div class="line">&#125;).then((time)=&gt;&#123;</div><div class="line">  console.log(&apos;2&apos;,time)</div><div class="line">  return time</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  console.log(err)</div><div class="line">  return err</div><div class="line">&#125;).then((time)=&gt;&#123;</div><div class="line">  console.log(&apos;3&apos;,time)</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  console.log(err)</div><div class="line">&#125;)</div><div class="line">//</div><div class="line">&quot;time&quot;</div><div class="line">[object Error] &#123; ... &#125; &quot;err&quot;</div><div class="line">&quot;2&quot; [object Error] &#123; ... &#125;</div><div class="line">&quot;3&quot; [object Error] &#123; ... &#125;</div><div class="line">// 很有意思的是第一次promise 异步代码失败</div><div class="line">执行reject, 但是后面的都是执行resolve,而且resolve的参数都已经是error对象了</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPromise</span> (<span class="params">status</span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> time = <span class="built_in">Date</span>.now()</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'time'</span>)</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">       <span class="keyword">if</span>(status) &#123;</div><div class="line">         resolve(time)</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">         reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'status error'</span>))</div><div class="line">       &#125;</div><div class="line">    &#125;,<span class="number">1000</span>)    </div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">getPromise(<span class="number">1</span>).then(<span class="function">(<span class="params">time</span>)=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'1'</span>,<span class="built_in">Date</span>.now()-time)</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Date</span>.now()-time</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err,<span class="string">'err'</span>)</div><div class="line">  <span class="keyword">return</span> err</div><div class="line">&#125;).then(<span class="function">(<span class="params">time</span>)=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'2'</span>,time)</div><div class="line">  <span class="keyword">return</span> time</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err,<span class="string">'err'</span>)</div><div class="line">  <span class="keyword">return</span> err</div><div class="line">&#125;).then(<span class="function">(<span class="params">time</span>)=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'3'</span>,time)</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err,<span class="string">'err'</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="string">"time"</span></div><div class="line"><span class="string">"1"</span> <span class="number">1002</span></div><div class="line"><span class="string">"2"</span> <span class="number">1002</span></div><div class="line"><span class="string">"3"</span> <span class="number">1002</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// status传0</span></div><div class="line">getPromise(<span class="number">0</span>).then(<span class="function">(<span class="params">time</span>)=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'1'</span>,<span class="built_in">Date</span>.now()-time)</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Date</span>.now()-time</div><div class="line">&#125;).then(<span class="function">(<span class="params">time</span>)=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'2'</span>,time)</div><div class="line">  <span class="keyword">return</span> time</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err)</div><div class="line">  <span class="keyword">return</span> err</div><div class="line">&#125;).then(<span class="function">(<span class="params">time</span>)=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'3'</span>,time)</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err)</div><div class="line">&#125;)</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="string">"time"</span></div><div class="line">[object <span class="built_in">Error</span>] &#123; ... &#125; <span class="string">"err"</span></div><div class="line"><span class="string">"2"</span> [object <span class="built_in">Error</span>] &#123; ... &#125;</div><div class="line"><span class="string">"3"</span> [object <span class="built_in">Error</span>] &#123; ... &#125;</div><div class="line"><span class="comment">// 很有意思的是第一次promise 异步代码失败</span></div><div class="line">执行reject, 但是后面的都是执行resolve,而且resolve的参数都已经是error对象了</div></pre></td></tr></table></figure>
 <ol>
 <li>这里我们定义了一个函数来返回一个promise实例，然后实例可以执行then。只要构造函数执行，里面的代码就会执行，异步代码也会放到异步队列，当异步代码执行完(这里就是我们的setTimeout)，根据我们提供的条件，成功执行resolve，失败就reject。当然条件都是我们自己规定的，比如异步请求的code…</li>
 </ol>
@@ -216,19 +395,19 @@
 </li>
 </ol>
 <p>举个栗子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">var getJson = function (url) &#123;</div><div class="line">  return new Promise(function (resolve, reject) &#123;</div><div class="line">    var xhr = new XMLHttpRequest ()</div><div class="line">    xhr.open(&apos;get&apos;,url)</div><div class="line">    xhr.onreadystatechange = callback</div><div class="line">    xhr.responseType = &apos;json&apos;</div><div class="line">    xhr.send(null)</div><div class="line">    function callback () &#123;</div><div class="line">      if(this.readyState !== 4) return</div><div class="line">      if(this.status === 200) &#123;</div><div class="line">        resolve(this.response)</div><div class="line">      &#125;else&#123;</div><div class="line">        reject(new Error(this.statusText))</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">getJson(&apos;api/list&apos;).then((response)=&gt;&#123;</div><div class="line">    console.log(response)</div><div class="line">    return getJson(response.url)</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  console.log(err)</div><div class="line">  return err</div><div class="line">&#125;).then((response)=&gt;&#123;</div><div class="line">    console.log(response)</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  console.log(err)</div><div class="line">&#125;)</div><div class="line">//这个就是典型的第二个请求的参数依赖于第一个请求返回的结果。</div><div class="line"></div><div class="line">业务中还有那种比如两三个请求都成功了，我们才处理，渲染的。用promise都比较好处理</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getJson = <span class="function"><span class="keyword">function</span> (<span class="params">url</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest ()</div><div class="line">    xhr.open(<span class="string">'get'</span>,url)</div><div class="line">    xhr.onreadystatechange = callback</div><div class="line">    xhr.responseType = <span class="string">'json'</span></div><div class="line">    xhr.send(<span class="literal">null</span>)</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callback</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.readyState !== <span class="number">4</span>) <span class="keyword">return</span></div><div class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.status === <span class="number">200</span>) &#123;</div><div class="line">        resolve(<span class="keyword">this</span>.response)</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="keyword">this</span>.statusText))</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">getJson(<span class="string">'api/list'</span>).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(response)</div><div class="line">    <span class="keyword">return</span> getJson(response.url)</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err)</div><div class="line">  <span class="keyword">return</span> err</div><div class="line">&#125;).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(response)</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err)</div><div class="line">&#125;)</div><div class="line"><span class="comment">//这个就是典型的第二个请求的参数依赖于第一个请求返回的结果。</span></div><div class="line"></div><div class="line">业务中还有那种比如两三个请求都成功了，我们才处理，渲染的。用promise都比较好处理</div></pre></td></tr></table></figure>
 <h5 id="Promise-prototype-catch"><a href="#Promise-prototype-catch" class="headerlink" title="Promise.prototype.catch()"></a>Promise.prototype.catch()</h5><p>Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">getPromise(0).then((time)=&gt;&#123;</div><div class="line">  console.log(&apos;1&apos;,Date.now()-time)</div><div class="line">  return Date.now()-time</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  console.log(err,&apos;err&apos;)</div><div class="line">  return err</div><div class="line">&#125;).then(null,(err)=&gt;&#123;</div><div class="line">  console.log(err,&apos;err&apos;)</div><div class="line">  return err</div><div class="line">&#125;).then(null,(err)=&gt;&#123;</div><div class="line">  console.log(err,&apos;err&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>类似于我们上面的例子把后面两个then 的 resolve去掉 改为null.<br>也就是说，当我们需要在第二个then 里面有目的的收集错误的时候，<br>我们可以直接用catch方法，省去then写法的麻烦。<br>类似于这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">getPromise(0).then((time)=&gt;&#123;</div><div class="line">  console.log(&apos;1&apos;,Date.now()-time)</div><div class="line">  return Date.now()-time</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  console.log(err,&apos;err&apos;)</div><div class="line">  return err</div><div class="line">&#125;).catch((err)=&gt;&#123;</div><div class="line">  console.log(err,&apos;err&apos;)</div><div class="line">  return err</div><div class="line">&#125;).catch((err)=&gt;&#123;</div><div class="line">  console.log(err,&apos;err&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">getPromise(<span class="number">0</span>).then(<span class="function">(<span class="params">time</span>)=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'1'</span>,<span class="built_in">Date</span>.now()-time)</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Date</span>.now()-time</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err,<span class="string">'err'</span>)</div><div class="line">  <span class="keyword">return</span> err</div><div class="line">&#125;).then(<span class="literal">null</span>,(err)=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err,<span class="string">'err'</span>)</div><div class="line">  <span class="keyword">return</span> err</div><div class="line">&#125;).then(<span class="literal">null</span>,(err)=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err,<span class="string">'err'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>类似于我们上面的例子把后面两个then 的 resolve去掉 改为null.<br>也就是说，当我们需要在第二个then 里面有目的的收集错误的时候，<br>我们可以直接用catch方法，省去then写法的麻烦。<br>类似于这样<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">getPromise(<span class="number">0</span>).then(<span class="function">(<span class="params">time</span>)=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'1'</span>,<span class="built_in">Date</span>.now()-time)</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Date</span>.now()-time</div><div class="line">&#125;,(err)=&gt;&#123;</div><div class="line">  <span class="built_in">console</span>.log(err,<span class="string">'err'</span>)</div><div class="line">  <span class="keyword">return</span> err</div><div class="line">&#125;).catch(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(err,<span class="string">'err'</span>)</div><div class="line">  <span class="keyword">return</span> err</div><div class="line">&#125;).catch(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(err,<span class="string">'err'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>当然我们不会写两个catch。这里只是改写一下then。<br>更多详细的直接看es6 入门里面，讲的很详细，因为catch我用的也不是很多<br><a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">es6入门阮一峰-promise</a></p>
 <h5 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h5><p>all 的主要用途就是多个请求，同时成功了，再做某事<br>参数是一个数组，数组里面是Promise实例</p>
 <blockquote>
 <p>注意这个方法是构造函数上的方法，用于将多个Promise实例，包装成一个新的Promise实例</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">两个Promise，请求 1.getExams  2.getQuestion</div><div class="line">Promise.all([getExams(examId), getQuestion(questionId)]).then((exams,questions)=&gt;&#123;</div><div class="line">    console.log(exams,questions)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">两个<span class="built_in">Promise</span>，请求 <span class="number">1.</span>getExams  <span class="number">2.</span>getQuestion</div><div class="line"><span class="built_in">Promise</span>.all([getExams(examId), getQuestion(questionId)]).then(<span class="function">(<span class="params">exams,questions</span>)=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(exams,questions)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>应用场景就是我们多个请求都成功，才能做什么。</p>
 <h5 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a>Promise.race()</h5><p>跟all用法类似，都是传多个promise对象。根据race 的意思，我们大概知道是干嘛的了。哪个先完成，就返回哪个的数据。<br>应用场景大概是两个服务器，比较哪个快。但是现在服务器 都会通过nginx 做负载均衡，也不需要前端去关注这些东西。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Promise.race([getExams(examId), getQuestion(questionId)]).then((data)=&gt;&#123;</div><div class="line">    console.log(data)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Promise</span>.race([getExams(examId), getQuestion(questionId)]).then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>本次笔记记录先到此，其实API 书中都比较清楚了。关键还是项目中的应用。<br>接下来还会去探究promise内部的实现。 自己实现类fetch的方法</p>
 <blockquote>
 <p>推荐链接</p>
@@ -236,332 +415,351 @@
 <p><a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">es6入门阮一峰-promise</a><br><a href="http://javascript.ruanyifeng.com/advanced/promise.html" target="_blank" rel="external">javascript标准参考教材</a><br><a href="https://github.com/xieranmaya/blog/issues/3" target="_blank" rel="external">剖析Promise内部结构</a></p>
 
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢大爷打赏...<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alpay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wxpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-Promise/">JavaScript Promise</a></li></ul>
-	</div>
 
-      
-
-      
-
+    <div>
       
         
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3awY6DMAxF0f7/TzNStwi4z4ZRcS6rasSkOVm4duzPBz/b99l/Pnpz/87+79vp83nikSFDxmsZZLmjpc83TdhHe4ipMmTIWICRBlkeFskBHX0X2ZsMGTJkkMDHt5JuUYYMGTLuWo6UoD/6uyFDhoxXMXgC17/VO1/t8VpchgwZL2R0GgNPf/6n/oYMGTJ+mLGVnvOWQKcYru1KhgwZsxnphkig7KR9ZDgDhV0ZMmQMYpDG5L3jFLUDujh6GTJkLMPgl1npABm/MiuOdMiQIWM0I03vaqMV/XCM0kQZMmQswODJXxpeO0cQ/BjIkCFjGQa/ICMBkQ+K8RCMGgMyZMgYxOiMWHXYaVIoQ4aMlRlpaEsv43iymF6uXdTiMmTIGMTgwY4XrvyaLD2gi98NGTJkLMDoD2zxorR/GRectwwZMl7O4K+SQNnKT/EwR9CJlSFDxggGH8xKg2NavrYeGTJkjGakl/61N3kTtF9Oy5AhYyqjE1Jr6WOtGYBamDJkyBjNSEco+BGkaxYbnDJkyFiAkYbL/hfz1BOV3DJkyBjN6C9RSwQ7TYXgv2TIkPFyxhY+JNj1E770CGTIkDGbUWt2kiK2RuIryJAhYzVGJ6WrlZfpWFhci8uQIWMo47ZJjVJJnJavMmTIkMHTsjQpfHD4VYYMGTJw7cs3ndbZwcyIDBkyhjJIEcvDaG0sLB4FkyFDxjKMWgmaUmtNyrtGNGTIkPFaxh++bXRyCNq9GgAAAABJRU5ErkJggg==" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
-      <div class="clearfix"></div>
     </div>
-  </div>
-</article>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2016/12/16/redux之store/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
+    <div>
+      
         
-          redux之store
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/12/15/redux之reducer/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">redux之reducer</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
 
-
-
-
-
-
-
-
-
-          </div>
-        </div>
-      </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 JoYous-SUN
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+      
     </div>
-  </div>
-</footer>
-    </div>
-    <script>
-	var yiliaConfig = {
-		mathjax: false,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false,
-		root: "/",
-		innerArchive: true
-	}
-</script>
-
-<script src="/./main.js?v=4.0.0.js"></script>
 
 
-    
-<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
-  <div class="tools-wrap">
-    
-    	<section class="tools-section tools-section-all" q-show="innerArchive">
-        <div class="search-wrap">
-          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
-          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
-          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Promise/" rel="tag"># Promise</a>
+          
         </div>
-        <div class="widget tagcloud search-tag">
-          <p class="search-tag-wording">tag:</p>
-          <label class="search-switch">
-            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
-          </label>
-          <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">JavaScript,Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">react,redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">react redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">JavaScript Promise</a>
-              </li>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-            <div class="clearfix"></div>
-          </ul>
+              <a href="/2016/12/15/redux之reducer/" rel="next" title="redux之reducer">
+                <i class="fa fa-chevron-left"></i> redux之reducer
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/16/redux之store/" rel="prev" title="redux之store">
+                redux之store <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
         </div>
-        <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
-            2、在根目录_config.yml里添加配置：
-<pre style="font-size: 12px;" q-show="jsonFail">
-  jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: true
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-</pre>
-          </p>
-          <li class="search-li" q-repeat="items" q-show="isShow">
-            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
-            <p class="search-time">
-              <i class="icon-calendar icon"></i>
-              <span q-text="date|dateformat"></span>
-            </p>
-            <p class="search-tag">
-              <i class="icon-price-tags icon"></i>
-              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
-            </p>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
           </li>
         </ul>
-    	</section>
-    
+      
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-    	</section>
-    
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/naruto.png"
+               alt="JoYous-SUN" />
+          <p class="site-author-name" itemprop="name">JoYous-SUN</p>
+          <p class="site-description motion-element" itemprop="description">工作生活,随笔随记</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">关于我&lt;br&gt;&lt;br&gt;新入前端，菜🐶一只。&lt;br&gt;热爱生活，热爱LOL、旅游...&lt;br&gt;保持新鲜，不断进取&lt;br&gt;谢谢大家</div>
-  	  	
-    	</section>
-    
-  </div>
-  
-</div>
-    <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+          
 
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
 
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
+        </nav>
 
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sunyongjian" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2478148491/home" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo,"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/sun-yong-jian-48/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
         </div>
 
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
+        
+        
 
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
             </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
 
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
+        
 
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
 
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
+      </section>
 
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
-        </div>
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#promise"><span class="nav-number">1.</span> <span class="nav-text">promise</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-prototype-then"><span class="nav-number">1.0.1.</span> <span class="nav-text">Promise.prototype.then()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-prototype-catch"><span class="nav-number">1.0.2.</span> <span class="nav-text">Promise.prototype.catch()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-all"><span class="nav-number">1.0.3.</span> <span class="nav-text">Promise.all()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-race"><span class="nav-number">1.0.4.</span> <span class="nav-text">Promise.race()</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
     </div>
+  </aside>
 
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JoYous-SUN</span>
 </div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
 </body>
 </html>

@@ -2,30 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2016/12/15/redux%E4%B9%8Breducer/</loc>
+    <loc>http://yoursite.com/tags/index.html</loc>
     
-    <lastmod>2016-12-16T12:41:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/12/16/redux-devtools%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2016-12-16T12:41:34.000Z</lastmod>
+    <lastmod>2016-12-19T11:56:02.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/12/16/promise%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://yoursite.com/about/index.html</loc>
     
-    <lastmod>2016-12-16T12:41:33.000Z</lastmod>
+    <lastmod>2016-12-19T11:55:22.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2016/12/16/redux%E4%B9%8Bstore/</loc>
     
-    <lastmod>2016-12-16T12:41:32.000Z</lastmod>
+    <lastmod>2016-12-19T11:44:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/12/16/promise%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2016-12-19T11:44:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/12/16/redux-devtools%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2016-12-19T11:27:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/12/15/redux%E4%B9%8Breducer/</loc>
+    
+    <lastmod>2016-12-19T11:26:44.000Z</lastmod>
     
   </url>
   
