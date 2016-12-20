@@ -3,6 +3,25 @@
 
 
     
+  <url>
+    <loc>http://yoursite.com/2016/12/20/js%E4%B8%AD%E7%9A%84%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2016-12-20T04:58:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>js中的观察者模式</title>
+        <pubTime>2016-12-20T04:56:08.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>设计模式</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
     
     
   <url>
@@ -13,9 +32,9 @@
         <title>redux之store</title>
         <pubTime>2016-12-16T12:05:51.000Z</pubTime>
         
-        <tag>redux</tag>
-         
         <tag>react</tag>
+         
+        <tag>redux</tag>
          
          
            
@@ -68,9 +87,9 @@
         <title>redux之reducer</title>
         <pubTime>2016-12-15T05:26:57.000Z</pubTime>
         
-        <tag>redux</tag>
-         
         <tag>react</tag>
+         
+        <tag>redux</tag>
          
          
            
